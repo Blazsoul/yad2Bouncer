@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body{
+  margin:0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
+.container {
+  width: 90%;
+  max-width: 600px;
+  padding: 5px;
+  font-size:17px;
+  margin-top: 30px;
+  /* text-align: left; */
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title{
+  font-size: 30px;
+}
+
+.usernameWrapper{
+  display: flex;
+  align-items: center;
+}
+
+.username{
+  margin-right:5px;
+}
+
+.settingsIcon{
+  cursor: pointer;
+  font-size:40px !important;
+}
+
+.nextRunWrapper{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.nextRun{
+  margin-bottom: 5px;
+}
+
+.nextRunTxt{
+  font-size: 17px;
+}
+
+.progress{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 15px;
+
+}
+
+
+.status{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.savedInfo{
+  padding-top: 7x; 
+  margin-top: 20px;
+}
+
+.savedInfoSectionHeader{
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.savedInfoSection{
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.form{
+  margin-top: 20px;
+}
+
+.formTitle{
+  color:blue;
+}
+
+.textField{
+  display: block;
+  width: 250px;
+  margin-top: 10px;
+}
+
+.saveBtn{
+  margin-top: 10px !important;
+}
+
+.runEveryWrapper{
+  display: flex;
+  align-items: center;
+  margin-top:20px;
+}
+
+.runEveryTxt{
+  margin-right:10px;
+}
+
+.startBtn{
+  margin-top: 10px !important;
+}
+
+.btnsWrapper{
+  display: flex;
+  justify-content: space-between;
+}
