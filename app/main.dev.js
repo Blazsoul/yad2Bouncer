@@ -164,7 +164,7 @@ ipcMain.on('runNow', async (e, payload) => {
   clearInterval(interval)
   await initScrape(payload)
   mainWindow.webContents.send('done', payload.timeInMs)
-  interval =  setInterval(() => initScrape(payload), payload.timeInMs)
+  interval = setInterval(() => initScrape(payload), payload.timeInMs)
 
 })
 
@@ -204,21 +204,24 @@ const bounceAllAds = async (payload) => {
   };
 
   console.log('path?',electron.app && electron.app.getPath('exe'))
-  console.log('path?',`C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`)
+  // console.log('path?',`C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`)
   const browser = await puppeteer.launch({
        headless: false,
        userDataDir: "./user_data",
+      //  executablePath: "C:\\dev\\reactYad2Bouncer\\node_modules\\electron\\dist\\",
       //  executablePath: electron.app.getPath('exe'),
       //  executablePath: `C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`,
       //  args: [__filename, '--is-page']
       // args: ["."]
       });
-  // const page = await browser.newPage();
+      console.log('successfully opened browser');
+  const page = await browser.newPage();
   // browser.newPage appears to be unsupported
   // check if pages[] is always populated
 
-
-  const [page] = await browser.pages();
+  
+  // const [page] = await browser.pages();
+  console.log('Opened page');
   await page.setViewport({ width: 1366, height: 768 });
   await page.goto('https://my.yad2.co.il/login.php');
   const hasToLogin = await page.$('#submitLogonForm');
@@ -231,11 +234,13 @@ const bounceAllAds = async (payload) => {
       }
       await page.type('#userName', email);
       await page.type('#password', pass);
+      console.log('entered Login details')
       await Promise.all([
-          page.click("#submitLogonForm"),
-          page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+        page.click("#submitLogonForm"),
+        page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
       ]);
-  }
+    }
+    console.log('passed login stage')
   let thumbnails = await page.$$('.thumbnailBar_wrap > a');
   // Enters catalog and bounce ads in each Catalog
   for(let i=0;i<thumbnails.length;i++) {
